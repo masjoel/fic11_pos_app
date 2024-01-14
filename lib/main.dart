@@ -1,3 +1,5 @@
+import 'package:fic11_pos_app/core/presentation/home/bloc/product/product_bloc.dart';
+import 'package:fic11_pos_app/data/datasources/product_remote_datasource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -27,6 +29,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LogoutBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ProductBloc(ProductRemoteDatasource())
+            ..add(const ProductEvent.fetch()),
         ),
       ],
       child: MaterialApp(

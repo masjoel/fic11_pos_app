@@ -9,11 +9,11 @@ part 'logout_state.dart';
 class LogoutBloc extends Bloc<LogoutEvent, LogoutState> {
     LogoutBloc() : super(const _Initial()) {
     on<_Logout>((event, emit) async {
-      emit(const _Loading());
+      emit(const LogoutState.loading());
       final response = await AuthRemoteDatasource().logout();
       response.fold(
-        (l) => emit(const _Error()),
-        (r) => emit(const _Loaded()),
+        (l) => emit(LogoutState.error(l)),
+        (r) => emit(const LogoutState.success()),
       );
     });
   }

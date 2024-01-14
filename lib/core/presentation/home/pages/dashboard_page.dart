@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../assets/assets.gen.dart';
 import '../../../constants/colors.dart';
 import '../widgets/nav_item.dart';
+import 'home_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -15,12 +16,15 @@ class _DashboardPageState extends State<DashboardPage> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    // const HomePage(),
+    const HomePage(),
     const Center(
       child: Text("Order"),
     ),
     const Center(
       child: Text("History"),
+    ),
+    const Center(
+      child: Text("Kelolah Menu"),
     ),
     // const SettingPage(),
     // const HomePage(),

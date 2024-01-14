@@ -4,6 +4,7 @@ import 'package:fic11_pos_app/core/constants/colors.dart';
 import 'package:fic11_pos_app/data/datasources/auth_local_datasource.dart';
 import 'package:fic11_pos_app/data/datasources/product_local_datasource.dart';
 
+import '../../auth/pages/login_page.dart';
 import '../../home/bloc/logout/logout_bloc.dart';
 import '../../home/bloc/product/product_bloc.dart';
 
@@ -64,13 +65,13 @@ class _SettingPageState extends State<SettingPage> {
               listener: (context, state) {
                 state.maybeMap(
                   orElse: () {},
-                  // success: () {
-                  //   AuthLocalDatasource().removeAuthData();
-                  //   Navigator.pushReplacement(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //           builder: (context) => const LoginPage()));
-                  // },
+                  success: (_) {
+                    AuthLocalDatasource().removeAuthData();
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
+                  },
                 );
               },
               builder: (context, state) {
