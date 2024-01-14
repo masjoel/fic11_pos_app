@@ -1,6 +1,5 @@
+import 'package:fic11_pos_app/data/models/response/product_response_model.dart';
 import 'package:sqflite/sqflite.dart';
-
-import '../models/response/product_response_model.dart';
 
 class ProductLocalDatasource {
   ProductLocalDatasource._init();

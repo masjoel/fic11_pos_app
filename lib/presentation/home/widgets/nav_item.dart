@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../components/spaces.dart';
-import '../../../constants/colors.dart';
-
 // import '../../../core/components/spaces.dart';
+import '../../../core/components/spaces.dart';
+import '../../../core/constants/colors.dart';
 
 
 

@@ -1,13 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:fic11_pos_app/core/extensions/int_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:fic11_pos_app/core/constants/variables.dart';
+import 'package:fic11_pos_app/core/extensions/int_ext.dart';
+import 'package:fic11_pos_app/data/models/response/product_response_model.dart';
 
-import '../../../../data/models/response/product_response_model.dart';
-import '../../../components/spaces.dart';
-import '../../../constants/colors.dart';
-import '../../../constants/variables.dart';
-
-
+import '../../../core/components/spaces.dart';
+import '../../../core/constants/colors.dart';
 
 class ProductCard extends StatelessWidget {
   final Product data;
@@ -43,8 +41,8 @@ class ProductCard extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(50.0)),
               child: CachedNetworkImage(
                 imageUrl: '${Variables.imageBaseUrl}${data.image}',
-                placeholder: (context, url) => const CircularProgressIndicator(),
-                errorWidget: (context, url, error) => const Icon(
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(
                   Icons.food_bank_outlined,
                   size: 80,
                 ),

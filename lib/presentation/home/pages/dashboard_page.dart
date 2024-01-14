@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fic11_pos_app/presentation/home/pages/home_page.dart';
+import 'package:fic11_pos_app/presentation/settting/pages/setting_page.dart';
 
-import '../../../assets/assets.gen.dart';
-import '../../../constants/colors.dart';
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/constants/colors.dart';
 import '../widgets/nav_item.dart';
-import 'home_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -23,10 +24,7 @@ class _DashboardPageState extends State<DashboardPage> {
     const Center(
       child: Text("History"),
     ),
-    const Center(
-      child: Text("Kelolah Menu"),
-    ),
-    // const SettingPage(),
+    const SettingPage(),
     // const HomePage(),
     // const OrdersPage(),
     // const Placeholder(),

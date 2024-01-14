@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:fic11_pos_app/core/constants/variables.dart';
 import 'package:http/http.dart' as http;
+import 'package:fic11_pos_app/data/models/response/product_response_model.dart';
 
-import '../../core/constants/variables.dart';
-import '../models/response/product_response_model.dart';
 import 'auth_local_datasource.dart';
 
 class ProductRemoteDatasource {

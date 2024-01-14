@@ -1,16 +1,16 @@
-import 'package:fic11_pos_app/core/presentation/home/bloc/product/product_bloc.dart';
-import 'package:fic11_pos_app/data/datasources/product_remote_datasource.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fic11_pos_app/data/datasources/auth_local_datasource.dart';
+import 'package:fic11_pos_app/data/datasources/auth_remote_datasource.dart';
+import 'package:fic11_pos_app/data/datasources/product_remote_datasource.dart';
+import 'package:fic11_pos_app/presentation/auth/pages/login_page.dart';
+import 'package:fic11_pos_app/presentation/home/bloc/product/product_bloc.dart';
+import 'package:fic11_pos_app/presentation/home/pages/dashboard_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'core/constants/colors.dart';
-import 'core/presentation/auth/bloc/login/login_bloc.dart';
-import 'core/presentation/auth/pages/login_page.dart';
-import 'core/presentation/home/bloc/logout/logout_bloc.dart';
-import 'core/presentation/home/pages/dashboard_page.dart';
-import 'data/datasources/auth_local_datasource.dart';
-// import 'data/datasources/auth_remote_datasource.dart';
+import 'presentation/auth/bloc/login/login_bloc.dart';
+import 'presentation/home/bloc/logout/logout_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,14 +25,14 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => LoginBloc(),
+          create: (context) => LoginBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
-          create: (context) => LogoutBloc(),
+          create: (context) => LogoutBloc(AuthRemoteDatasource()),
         ),
         BlocProvider(
           create: (context) => ProductBloc(ProductRemoteDatasource())
-            ..add(const ProductEvent.fetch()),
+            ..add(const ProductEvent.fetchLocal()),
         ),
       ],
       child: MaterialApp(

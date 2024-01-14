@@ -1,6 +1,7 @@
+
+import 'package:flutter/material.dart';
 import 'package:fic11_pos_app/core/components/spaces.dart';
 import 'package:fic11_pos_app/core/extensions/build_context_ext.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 

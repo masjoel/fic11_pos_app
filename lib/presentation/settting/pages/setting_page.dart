@@ -3,10 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fic11_pos_app/core/constants/colors.dart';
 import 'package:fic11_pos_app/data/datasources/auth_local_datasource.dart';
 import 'package:fic11_pos_app/data/datasources/product_local_datasource.dart';
+import 'package:fic11_pos_app/presentation/auth/pages/login_page.dart';
+import 'package:fic11_pos_app/presentation/home/bloc/product/product_bloc.dart';
 
-import '../../auth/pages/login_page.dart';
 import '../../home/bloc/logout/logout_bloc.dart';
-import '../../home/bloc/product/product_bloc.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});

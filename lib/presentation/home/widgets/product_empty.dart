@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../assets/assets.gen.dart';
-import '../../../components/spaces.dart';
-import '../../../constants/colors.dart';
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/components/spaces.dart';
+import '../../../core/constants/colors.dart';
+
 
 class ProductEmpty extends StatelessWidget {
   const ProductEmpty({super.key});

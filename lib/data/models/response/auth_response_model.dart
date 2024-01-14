@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
 class AuthResponseModel {
@@ -30,7 +31,7 @@ class User {
   final int id;
   final String name;
   final String email;
-  String? phone;
+  final String phone;
   final String roles;
   final DateTime createdAt;
   final DateTime updatedAt;

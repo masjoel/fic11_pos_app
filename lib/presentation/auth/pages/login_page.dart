@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fic11_pos_app/data/datasources/auth_local_datasource.dart';
+import 'package:fic11_pos_app/presentation/auth/bloc/login/login_bloc.dart';
 
-import '../../../../data/models/request/auth_request_model.dart';
-import '../../../assets/assets.gen.dart';
-import '../../../components/buttons.dart';
-import '../../../components/custom_text_field.dart';
-import '../../../components/spaces.dart';
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/components/buttons.dart';
+import '../../../core/components/custom_text_field.dart';
+import '../../../core/components/spaces.dart';
 import '../../home/pages/dashboard_page.dart';
-import '../bloc/login/login_bloc.dart';
-// import '../../home/pages/dashboard_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -80,34 +79,15 @@ class _LoginPageState extends State<LoginPage> {
             listener: (context, state) {
               state.maybeWhen(
                 orElse: () {},
-                loaded: (data) {
+                success: (authResponseModel) {
+                  AuthLocalDatasource().saveAuthData(authResponseModel);
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                       builder: (context) => const DashboardPage(),
                     ),
                   );
-                  // AuthLocalDatasource().saveAuthData(data);
-                  // if (data.user.roles == 'mahasiswa') {
-                  //   Navigator.pushReplacement(context,
-                  //       MaterialPageRoute(builder: (context) {
-                  //     return const MahasiswaPage();
-                  //   }));
-                  // } else {
-                  //   Navigator.pushReplacement(context,
-                  //       MaterialPageRoute(builder: (context) {
-                  //     return const DosenPage();
-                  //   }));
-                  // }
                 },
-                // success: (authResponseModel) {
-                //   Navigator.pushReplacement(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const DashboardPage(),
-                //     ),
-                //   );
-                // },
                 error: (message) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
@@ -121,21 +101,14 @@ class _LoginPageState extends State<LoginPage> {
             child: BlocBuilder<LoginBloc, LoginState>(
               builder: (context, state) {
                 return state.maybeWhen(orElse: () {
-                  return Button.outlined(
+                  return Button.filled(
                     onPressed: () {
-                      final requestModel = AuthRequestModel(
-                        email: usernameController.text,
-                        password: passwordController.text,
-                      );
-                      context
-                          .read<LoginBloc>()
-                          .add(LoginEvent.login(requestModel));
-                      // context.read<LoginBloc>().add(
-                      //       LoginEvent.login(
-                      //         email: usernameController.text,
-                      //         password: passwordController.text,
-                      //       ),
-                      //     );
+                      context.read<LoginBloc>().add(
+                            LoginEvent.login(
+                              email: usernameController.text,
+                              password: passwordController.text,
+                            ),
+                          );
                     },
                     label: 'Masuk',
                   );

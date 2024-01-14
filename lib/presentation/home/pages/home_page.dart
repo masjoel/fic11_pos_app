@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../assets/assets.gen.dart';
-import '../../../components/menu_button.dart';
-import '../../../components/search_input.dart';
-import '../../../components/spaces.dart';
-import '../bloc/product/product_bloc.dart';
+import 'package:fic11_pos_app/presentation/home/bloc/product/product_bloc.dart';
+
+import '../../../core/assets/assets.gen.dart';
+import '../../../core/components/menu_button.dart';
+import '../../../core/components/search_input.dart';
+import '../../../core/components/spaces.dart';
 import '../widgets/product_card.dart';
 import '../widgets/product_empty.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
